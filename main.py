@@ -2,40 +2,47 @@ import streamlit as st
 
 # MBTI별 추천 직업 데이터
 mbti_jobs = {
-    "ISTJ": ["회계사", "변호사", "군인", "프로젝트 매니저"],
-    "ISFJ": ["간호사", "교사", "사회복지사", "행정직"],
-    "INFJ": ["작가", "상담가", "교수", "심리학자"],
-    "INTJ": ["데이터 과학자", "전략 컨설턴트", "연구원", "정책 분석가"],
+    "ISTJ": ["📊 회계사", "⚖️ 변호사", "🪖 군인", "📋 프로젝트 매니저"],
+    "ISFJ": ["🩺 간호사", "🍎 교사", "🤝 사회복지사", "🏛 행정직"],
+    "INFJ": ["✍️ 작가", "🧠 상담가", "🎓 교수", "🔮 심리학자"],
+    "INTJ": ["💻 데이터 과학자", "📈 전략 컨설턴트", "🔬 연구원", "📊 정책 분석가"],
 
-    "ISTP": ["엔지니어", "파일럿", "스포츠 트레이너", "프로그래머"],
-    "ISFP": ["예술가", "디자이너", "작곡가", "치유사"],
-    "INFP": ["상담심리사", "사회운동가", "작가", "작곡가"],
-    "INTP": ["연구원", "철학자", "개발자", "과학자"],
+    "ISTP": ["⚙️ 엔지니어", "🛩 파일럿", "🏋️‍♂️ 스포츠 트레이너", "👨‍💻 프로그래머"],
+    "ISFP": ["🎨 예술가", "🖌 디자이너", "🎶 작곡가", "🌿 치유사"],
+    "INFP": ["💬 상담심리사", "✊ 사회운동가", "📖 작가", "🎼 작곡가"],
+    "INTP": ["🔭 연구원", "📚 철학자", "💻 개발자", "🧪 과학자"],
 
-    "ESTP": ["기업가", "세일즈 매니저", "경찰관", "스포츠 코치"],
-    "ESFP": ["연예인", "이벤트 플래너", "방송인", "홍보 담당자"],
-    "ENFP": ["광고 기획자", "심리학자", "예술가", "창업가"],
-    "ENTP": ["마케터", "벤처기업가", "정치인", "방송 진행자"],
+    "ESTP": ["💼 기업가", "🛒 세일즈 매니저", "👮 경찰관", "🏆 스포츠 코치"],
+    "ESFP": ["🌟 연예인", "🎉 이벤트 플래너", "📺 방송인", "📢 홍보 담당자"],
+    "ENFP": ["🎭 광고 기획자", "🧩 심리학자", "🎨 예술가", "🚀 창업가"],
+    "ENTP": ["📊 마케터", "🚀 벤처기업가", "🎤 정치인", "📺 방송 진행자"],
 
-    "ESTJ": ["경영자", "판사", "군 장교", "공무원"],
-    "ESFJ": ["초등 교사", "간호사", "HR 매니저", "사회복지사"],
-    "ENFJ": ["교수", "멘토", "상담사", "정치가"],
-    "ENTJ": ["CEO", "변호사", "전략 기획자", "프로젝트 리더"]
+    "ESTJ": ["🏦 경영자", "⚖️ 판사", "🎖 군 장교", "🏛 공무원"],
+    "ESFJ": ["🍎 초등 교사", "🩺 간호사", "👥 HR 매니저", "🤲 사회복지사"],
+    "ENFJ": ["🎓 교수", "🫶 멘토", "💬 상담사", "🏛 정치가"],
+    "ENTJ": ["👑 CEO", "⚖️ 변호사", "📊 전략 기획자", "🚀 프로젝트 리더"]
 }
 
 # 앱 제목
-st.title("🌱 MBTI 기반 진로 추천 사이트")
-st.write("당신의 MBTI를 선택하면 어울리는 직업을 추천해드립니다!")
+st.markdown("<h1 style='text-align: center; color: #4CAF50;'>🌱 MBTI 기반 진로 추천 사이트 ✨</h1>", unsafe_allow_html=True)
+st.write("당신의 MBTI를 선택하면 ✨ 어울리는 직업 ✨을 추천해드립니다!")
 
 # 사용자 입력 (Selectbox)
 selected_mbti = st.selectbox(
-    "당신의 MBTI를 선택하세요",
+    "👉 당신의 MBTI를 선택하세요:",
     options=list(mbti_jobs.keys())
 )
 
 # 직업 추천 결과 출력
 if selected_mbti:
-    st.subheader(f"🔎 {selected_mbti} 유형에 어울리는 직업 추천")
+    st.markdown(f"<h2 style='color:#FF5733;'>🔎 {selected_mbti} 유형에 어울리는 직업 추천</h2>", unsafe_allow_html=True)
+    
     for job in mbti_jobs[selected_mbti]:
-        st.write(f"- {job}")
+        st.markdown(
+            f"<div style='background-color:#f0f8ff; padding:10px; margin:5px; border-radius:10px; font-size:18px;'>✨ {job}</div>", 
+            unsafe_allow_html=True
+        )
 
+# 푸터
+st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center; color:gray;'>💡 Tip: MBTI는 참고용일 뿐! 진로는 당신의 꿈과 열정이 가장 중요합니다 💖</p>", unsafe_allow_html=True)
