@@ -20,17 +20,18 @@ food_options = {
     "😴 피곤할 때": "국밥"
 }
 
+# 보너스 멘트 미리 정의 (두 버튼에서 공유)
+comments = [
+    "행복한 돼지가 되세요! 😍"
+]
+
 # 라디오 버튼 UI
 choice = st.radio("오늘 상황은? 👇", list(food_options.keys()))
 
+# 선택한 카테고리 추천 버튼
 if st.button("추천 받기 🚀"):
     food = food_options[choice]
     st.success(f"👉 오늘은 **{food}** 어때요? 😋")
-
-    # 보너스 멘트
-    comments = [
-        "행복한 돼지가 되세요! 😍",
-    ]
     st.write(random.choice(comments))
 
 # 랜덤 추천 버튼
